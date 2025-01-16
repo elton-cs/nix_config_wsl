@@ -1,5 +1,12 @@
 { config, pkgs, ... }:
-
+let
+  nix_dojo_repo = pkgs.fetchgit {
+    url = "https://github.com/elton-cs/dojo_nix";
+    rev = "312e292db6fe32bcafc540ac661ef485d1785764";
+    hash = "sha256-mVorPTvdmWoCsfAK+Ejc66+/UGuxvRvSTJ78B77mq54=";
+  };
+  starknet = import nix_dojo_repo { inherit pkgs; };
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -27,6 +34,11 @@
     lazygit
     openssh
     gh
+    wget
+
+    starknet.dojo
+            
+    ## (callPackage /home/zkl10/local_repos/dojo_nix/package.nix {})
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
