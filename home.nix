@@ -2,8 +2,8 @@
 let
   nix_dojo_repo = pkgs.fetchgit {
     url = "https://github.com/elton-cs/dojo_nix";
-    rev = "312e292db6fe32bcafc540ac661ef485d1785764";
-    hash = "sha256-mVorPTvdmWoCsfAK+Ejc66+/UGuxvRvSTJ78B77mq54=";
+    rev = "b9a3309c2d12720f4007c5e4a66681955a26d82e";
+    hash = "sha256-kaBorA7sn3WEMgplU2rrZS6MeaELwDZa9PHQVhtMVzc=";
   };
   starknet = import nix_dojo_repo { inherit pkgs; };
 in
@@ -37,6 +37,7 @@ in
     wget
 
     starknet.dojo
+    starknet.scarb
             
     ## (callPackage /home/zkl10/local_repos/dojo_nix/package.nix {})
 
