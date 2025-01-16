@@ -2,8 +2,8 @@
 let
   nix_dojo_repo = pkgs.fetchgit {
     url = "https://github.com/elton-cs/dojo_nix";
-    rev = "b9a3309c2d12720f4007c5e4a66681955a26d82e";
-    hash = "sha256-kaBorA7sn3WEMgplU2rrZS6MeaELwDZa9PHQVhtMVzc=";
+    rev = "d0d6d2a4887974cb3a688ff113499d040260c7c0";
+    hash = "sha256-boVk+XDSa5geS8LaJRvP1ha9l6aFVBs3M9outOhWPl8=";
   };
   starknet = import nix_dojo_repo { inherit pkgs; };
 in
@@ -35,6 +35,10 @@ in
     openssh
     gh
     wget
+
+    rustc
+    cargo
+    rust-analyzer
 
     starknet.dojo
     starknet.scarb
